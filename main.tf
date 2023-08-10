@@ -1,13 +1,11 @@
 terraform {
- required_providers {
-   aws = {
-     source  = "hashicorp/aws"
-     version = "~> 3.0"
-   }
- }
-}
+  cloud {
+    organization = "yuzeir-org"
+    hostname = "app.terraform.io"
 
-provider "aws" {
- region = “us-west-1”
+    workspaces {
+      tags = ["networking", "source:cli"]
+    }
+  }
 }
 
